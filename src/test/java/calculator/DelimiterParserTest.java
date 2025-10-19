@@ -28,4 +28,16 @@ public class DelimiterParserTest {
         // then
         Assertions.assertArrayEquals(new int[]{1, 2, 3}, result);
     }
+
+    @Test
+    public void 정상_입력_쉼표와_콜론_모두_구성된_경우() {
+        // given
+        String input = "1:2,3";
+
+        // when
+        int[] result = DelimiterParser.getNumbersByDelimiter(input);
+
+        // then
+        Assertions.assertArrayEquals(new int[]{1, 2, 3}, result);
+    }
 }
