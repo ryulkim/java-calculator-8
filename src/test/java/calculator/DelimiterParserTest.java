@@ -64,4 +64,16 @@ public class DelimiterParserTest {
         // then
         Assertions.assertArrayEquals(new int[]{1, 2, 3}, result);
     }
+
+    @Test
+    public void 정상_입력_커스텀_구분자와_기본_구분자가_혼용_구성된_경우() {
+        // given
+        String input = "//;;;\n1:2;;;3,4";
+
+        // when
+        int[] result = DelimiterParser.getNumbersByDelimiter(input);
+
+        // then
+        Assertions.assertArrayEquals(new int[]{1, 2, 3, 4}, result);
+    }
 }
