@@ -40,4 +40,16 @@ public class DelimiterParserTest {
         // then
         Assertions.assertArrayEquals(new int[]{1, 2, 3}, result);
     }
+
+    @Test
+    public void 정상_입력_커스텀_구분자_길이가_1로_구성된_경우() {
+        // given
+        String input = "//;\n1;2;3";
+
+        // when
+        int[] result = DelimiterParser.getNumbersByDelimiter(input);
+
+        // then
+        Assertions.assertArrayEquals(new int[]{1, 2, 3}, result);
+    }
 }
