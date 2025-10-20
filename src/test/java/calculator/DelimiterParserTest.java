@@ -99,4 +99,10 @@ public class DelimiterParserTest {
         String input = "//;\n1a;2;3;4";
         Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
     }
+
+    @Test
+    public void 예외_처리_양수가_아닌_수가_입력된_경우() {
+        String input = "//;\n1;-2;3;4";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
+    }
 }
