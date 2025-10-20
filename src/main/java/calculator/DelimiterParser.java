@@ -16,7 +16,7 @@ public class DelimiterParser {
         String[] customDelimiters = extractCustomDelimiterAndRemains(input);
         if (customDelimiters != null && validDelimiter(customDelimiters[0])) {
             /* customDelimiter가 특수문자일 경우 예외 처리 필요 */
-            regex += "|" + customDelimiters[0];
+            regex += "|" + Pattern.quote(customDelimiters[0]);
             input = customDelimiters[1];
         }
 
