@@ -24,4 +24,13 @@ public class NumberValidatorTest {
         // then
         Assertions.assertThrows(IllegalArgumentException.class, () -> NumberValidator.parseInt(inputs));
     }
+
+    @Test
+    public void 예외_처리_양수가_아닌_수가_입력된_경우() {
+        // given
+        String[] inputs = {"1", "-2", "3", "4"};
+
+        // then
+        Assertions.assertThrows(IllegalArgumentException.class, () -> NumberValidator.parseInt(inputs));
+    }
 }
