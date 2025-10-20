@@ -78,6 +78,17 @@ public class DelimiterParserTest {
     }
 
     @Test
+    public void 정상_입력_커스텀_구분자가_특수_문자일_경우() {
+        String input = "//.\n1.2.3.4";
+
+        // when
+        int[] result = DelimiterParser.getNumbersByDelimiter(input);
+
+        // then
+        Assertions.assertArrayEquals(new int[]{1, 2, 3, 4}, result);
+    }
+
+    @Test
     public void 예외_처리_커스텀_구분자에_숫자가_포함되어있는_경우() {
         String input = "//a11a\n1,2,3,4";
         Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
