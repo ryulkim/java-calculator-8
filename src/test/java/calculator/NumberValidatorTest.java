@@ -1,0 +1,18 @@
+package calculator;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class NumberValidatorTest {
+    @Test
+    public void 정상_입력_숫자로_바꿀_수_있는_경우() {
+        // given
+        String[] inputs = {"1", "2", "3", "4"};
+
+        // when
+        int[] result = NumberValidator.parseInt(inputs);
+
+        // then
+        Assertions.assertArrayEquals(new int[]{1, 2, 3, 4}, result);
+    }
+}
