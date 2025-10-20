@@ -76,4 +76,10 @@ public class DelimiterParserTest {
         // then
         Assertions.assertArrayEquals(new int[]{1, 2, 3, 4}, result);
     }
+
+    @Test
+    public void 예외_처리_커스텀_구분자에_숫자가_포함되어있는_경우() {
+        String input = "//a11a\n1,2,3,4";
+        Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
+    }
 }
