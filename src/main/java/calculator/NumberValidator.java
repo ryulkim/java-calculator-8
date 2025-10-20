@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 public class NumberValidator {
 
-    public static int[] parseInt(String[] inputs) throws IllegalArgumentException {
+    public static int[] parseInt(String[] inputs) {
         return Arrays.stream(inputs).mapToInt(NumberValidator::getInteger).toArray();
     }
 
-    private static int getInteger(String input) throws IllegalArgumentException {
+    private static int getInteger(String input) {
         try {
             int parsedInt = Integer.parseInt(input);
             if (parsedInt <= 0) {
