@@ -90,19 +90,28 @@ public class DelimiterParserTest {
 
     @Test
     public void 예외_처리_커스텀_구분자에_숫자가_포함되어있는_경우() {
+        // given
         String input = "//a11a\n1,2,3,4";
+
+        // then
         Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
     }
 
     @Test
     public void 예외_처리_문자가_입력된_경우() {
+        // given
         String input = "//;\n1a;2;3;4";
+
+        // then
         Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
     }
 
     @Test
     public void 예외_처리_양수가_아닌_수가_입력된_경우() {
+        // given
         String input = "//;\n1;-2;3;4";
+
+        // then
         Assertions.assertThrows(IllegalArgumentException.class, () -> DelimiterParser.getNumbersByDelimiter(input));
     }
 }
